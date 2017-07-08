@@ -10,11 +10,27 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
+    
+    var coordinator: MainCoordinator!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let mainWindow = UIWindow(frame: UIScreen.main.bounds)
+        mainWindow.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        mainWindow.screen = UIScreen.main
+        mainWindow.makeKeyAndVisible()
+        coordinator = MainCoordinator(window: mainWindow)
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIScreenDidConnect, object: nil, queue: OperationQueue.main) { (_) in
+            self.updateScreens()
+        }
+
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIScreenDidDisconnect, object: nil, queue: OperationQueue.main) { (_) in
+            self.updateScreens()
+        }
+
         // Override point for customization after application launch.
         return true
     }
@@ -39,6 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    private func updateScreens() {
+        coordinator.updateScreens()
     }
 
 

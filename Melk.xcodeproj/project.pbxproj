@@ -7,23 +7,87 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0919AEA71F0D3D9D00894FFA /* SecondaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919AEA61F0D3D9D00894FFA /* SecondaryViewController.swift */; };
+		0919AEA91F0D459600894FFA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919AEA81F0D459600894FFA /* CardView.swift */; };
+		0919AEAD1F0D706700894FFA /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919AEAC1F0D706700894FFA /* StackView.swift */; };
+		09939A561F097DA90014719D /* TableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09939A551F097DA90014719D /* TableViewCells.swift */; };
+		09A456361F0ED9A800BAC32D /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A456351F0ED9A800BAC32D /* CollectionView.swift */; };
+		09B781591F11630D0007D2BF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 09B781581F11630D0007D2BF /* .gitignore */; };
 		09BF41EF1F07F71F00AFAD57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF41EE1F07F71F00AFAD57 /* AppDelegate.swift */; };
-		09BF41F11F07F71F00AFAD57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF41F01F07F71F00AFAD57 /* ViewController.swift */; };
-		09BF41F41F07F71F00AFAD57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BF41F21F07F71F00AFAD57 /* Main.storyboard */; };
 		09BF41F61F07F71F00AFAD57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09BF41F51F07F71F00AFAD57 /* Assets.xcassets */; };
 		09BF41F91F07F71F00AFAD57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BF41F71F07F71F00AFAD57 /* LaunchScreen.storyboard */; };
 		09BF42011F07F75800AFAD57 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 09BF42001F07F75800AFAD57 /* Cartfile */; };
+		09BF420E1F0833A700AFAD57 /* LocalVKDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF420D1F0833A700AFAD57 /* LocalVKDataTypes.swift */; };
+		09BF42101F0833C100AFAD57 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF420F1F0833C100AFAD57 /* MainCoordinator.swift */; };
+		09BF42131F08341B00AFAD57 /* MyWeirdness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42111F08341B00AFAD57 /* MyWeirdness.swift */; };
+		09BF42141F08341B00AFAD57 /* PublicCrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42121F08341B00AFAD57 /* PublicCrap.swift */; };
+		09BF42161F0834D400AFAD57 /* VKPublicCrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42151F0834D400AFAD57 /* VKPublicCrap.swift */; };
+		09BF42181F08352E00AFAD57 /* VKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42171F08352E00AFAD57 /* VKData.swift */; };
+		09BF421A1F08357E00AFAD57 /* VkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42191F08357E00AFAD57 /* VkServices.swift */; };
+		09BF42261F0835B200AFAD57 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42021F080A5700AFAD57 /* Alamofire.framework */; };
+		09BF42271F0835B200AFAD57 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42021F080A5700AFAD57 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09BF42281F0835B200AFAD57 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42031F080A5700AFAD57 /* Nuke.framework */; };
+		09BF42291F0835B200AFAD57 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42031F080A5700AFAD57 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09BF422A1F0835B200AFAD57 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42041F080A5700AFAD57 /* Realm.framework */; };
+		09BF422B1F0835B200AFAD57 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42041F080A5700AFAD57 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09BF422C1F0835B200AFAD57 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42051F080A5700AFAD57 /* RealmSwift.framework */; };
+		09BF422D1F0835B200AFAD57 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42051F080A5700AFAD57 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09BF422E1F0835B200AFAD57 /* SwiftyVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42061F080A5700AFAD57 /* SwiftyVK.framework */; };
+		09BF422F1F0835B200AFAD57 /* SwiftyVK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42061F080A5700AFAD57 /* SwiftyVK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09BF42321F08388100AFAD57 /* SecondaryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42311F08388100AFAD57 /* SecondaryCoordinator.swift */; };
+		09BF42341F083B5800AFAD57 /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */; };
+		09BF42351F083B6000AFAD57 /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */; };
+		09BF42361F083B6000AFAD57 /* SwiftWebSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09BF42561F08413000AFAD57 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42551F08413000AFAD57 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		09BF42301F0835B200AFAD57 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				09BF422B1F0835B200AFAD57 /* Realm.framework in Embed Frameworks */,
+				09BF42271F0835B200AFAD57 /* Alamofire.framework in Embed Frameworks */,
+				09BF42361F083B6000AFAD57 /* SwiftWebSocket.framework in Embed Frameworks */,
+				09BF422F1F0835B200AFAD57 /* SwiftyVK.framework in Embed Frameworks */,
+				09BF422D1F0835B200AFAD57 /* RealmSwift.framework in Embed Frameworks */,
+				09BF42291F0835B200AFAD57 /* Nuke.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0919AEA61F0D3D9D00894FFA /* SecondaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryViewController.swift; sourceTree = "<group>"; };
+		0919AEA81F0D459600894FFA /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0919AEAC1F0D706700894FFA /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		09939A551F097DA90014719D /* TableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCells.swift; sourceTree = "<group>"; };
+		09A456351F0ED9A800BAC32D /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		09B781581F11630D0007D2BF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		09BF41EB1F07F71F00AFAD57 /* Melk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09BF41EE1F07F71F00AFAD57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09BF41F01F07F71F00AFAD57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		09BF41F31F07F71F00AFAD57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09BF41F51F07F71F00AFAD57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09BF41F81F07F71F00AFAD57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09BF41FA1F07F71F00AFAD57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09BF42001F07F75800AFAD57 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		09BF42021F080A5700AFAD57 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
+		09BF42031F080A5700AFAD57 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = SOURCE_ROOT; };
+		09BF42041F080A5700AFAD57 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = SOURCE_ROOT; };
+		09BF42051F080A5700AFAD57 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = SOURCE_ROOT; };
+		09BF42061F080A5700AFAD57 /* SwiftyVK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyVK.framework; path = Carthage/Build/iOS/SwiftyVK.framework; sourceTree = SOURCE_ROOT; };
+		09BF420D1F0833A700AFAD57 /* LocalVKDataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalVKDataTypes.swift; sourceTree = "<group>"; };
+		09BF420F1F0833C100AFAD57 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		09BF42111F08341B00AFAD57 /* MyWeirdness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWeirdness.swift; sourceTree = "<group>"; };
+		09BF42121F08341B00AFAD57 /* PublicCrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicCrap.swift; sourceTree = "<group>"; };
+		09BF42151F0834D400AFAD57 /* VKPublicCrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKPublicCrap.swift; sourceTree = "<group>"; };
+		09BF42171F08352E00AFAD57 /* VKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKData.swift; sourceTree = "<group>"; };
+		09BF42191F08357E00AFAD57 /* VkServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VkServices.swift; sourceTree = "<group>"; };
+		09BF42311F08388100AFAD57 /* SecondaryCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryCoordinator.swift; sourceTree = "<group>"; };
+		09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = Carthage/Build/iOS/SwiftWebSocket.framework; sourceTree = SOURCE_ROOT; };
+		09BF42551F08413000AFAD57 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +95,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BF422A1F0835B200AFAD57 /* Realm.framework in Frameworks */,
+				09BF42261F0835B200AFAD57 /* Alamofire.framework in Frameworks */,
+				09BF42341F083B5800AFAD57 /* SwiftWebSocket.framework in Frameworks */,
+				09BF422E1F0835B200AFAD57 /* SwiftyVK.framework in Frameworks */,
+				09BF422C1F0835B200AFAD57 /* RealmSwift.framework in Frameworks */,
+				09BF42281F0835B200AFAD57 /* Nuke.framework in Frameworks */,
+				09BF42351F083B6000AFAD57 /* SwiftWebSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09A456341F0ED98800BAC32D /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				0919AEAC1F0D706700894FFA /* StackView.swift */,
+				09A456351F0ED9A800BAC32D /* CollectionView.swift */,
+			);
+			name = Public;
+			sourceTree = "<group>";
+		};
 		09BF41E21F07F71F00AFAD57 = {
 			isa = PBXGroup;
 			children = (
@@ -57,14 +137,40 @@
 			isa = PBXGroup;
 			children = (
 				09BF41EE1F07F71F00AFAD57 /* AppDelegate.swift */,
-				09BF41F01F07F71F00AFAD57 /* ViewController.swift */,
-				09BF41F21F07F71F00AFAD57 /* Main.storyboard */,
+				09BF42111F08341B00AFAD57 /* MyWeirdness.swift */,
+				09BF42121F08341B00AFAD57 /* PublicCrap.swift */,
+				09BF420F1F0833C100AFAD57 /* MainCoordinator.swift */,
+				09BF42311F08388100AFAD57 /* SecondaryCoordinator.swift */,
+				0919AEA81F0D459600894FFA /* CardView.swift */,
+				0919AEA61F0D3D9D00894FFA /* SecondaryViewController.swift */,
+				09BF42551F08413000AFAD57 /* MainViewController.swift */,
+				09939A551F097DA90014719D /* TableViewCells.swift */,
+				09BF420D1F0833A700AFAD57 /* LocalVKDataTypes.swift */,
+				09BF42151F0834D400AFAD57 /* VKPublicCrap.swift */,
+				09BF42191F08357E00AFAD57 /* VkServices.swift */,
+				09BF42171F08352E00AFAD57 /* VKData.swift */,
 				09BF41F51F07F71F00AFAD57 /* Assets.xcassets */,
 				09BF41F71F07F71F00AFAD57 /* LaunchScreen.storyboard */,
 				09BF41FA1F07F71F00AFAD57 /* Info.plist */,
 				09BF42001F07F75800AFAD57 /* Cartfile */,
+				09A456341F0ED98800BAC32D /* Public */,
+				09B781581F11630D0007D2BF /* .gitignore */,
+				09BF420C1F080A5F00AFAD57 /* Dependencies */,
 			);
 			path = Melk;
+			sourceTree = "<group>";
+		};
+		09BF420C1F080A5F00AFAD57 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */,
+				09BF42021F080A5700AFAD57 /* Alamofire.framework */,
+				09BF42031F080A5700AFAD57 /* Nuke.framework */,
+				09BF42041F080A5700AFAD57 /* Realm.framework */,
+				09BF42051F080A5700AFAD57 /* RealmSwift.framework */,
+				09BF42061F080A5700AFAD57 /* SwiftyVK.framework */,
+			);
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +183,7 @@
 				09BF41E71F07F71F00AFAD57 /* Sources */,
 				09BF41E81F07F71F00AFAD57 /* Frameworks */,
 				09BF41E91F07F71F00AFAD57 /* Resources */,
+				09BF42301F0835B200AFAD57 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,10 +234,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09B781591F11630D0007D2BF /* .gitignore in Resources */,
 				09BF41F91F07F71F00AFAD57 /* LaunchScreen.storyboard in Resources */,
 				09BF41F61F07F71F00AFAD57 /* Assets.xcassets in Resources */,
 				09BF42011F07F75800AFAD57 /* Cartfile in Resources */,
-				09BF41F41F07F71F00AFAD57 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,22 +248,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09BF41F11F07F71F00AFAD57 /* ViewController.swift in Sources */,
+				09939A561F097DA90014719D /* TableViewCells.swift in Sources */,
+				0919AEAD1F0D706700894FFA /* StackView.swift in Sources */,
+				09BF42141F08341B00AFAD57 /* PublicCrap.swift in Sources */,
+				09BF42161F0834D400AFAD57 /* VKPublicCrap.swift in Sources */,
+				09BF42181F08352E00AFAD57 /* VKData.swift in Sources */,
+				09BF42101F0833C100AFAD57 /* MainCoordinator.swift in Sources */,
+				09A456361F0ED9A800BAC32D /* CollectionView.swift in Sources */,
+				09BF421A1F08357E00AFAD57 /* VkServices.swift in Sources */,
+				09BF42131F08341B00AFAD57 /* MyWeirdness.swift in Sources */,
+				0919AEA91F0D459600894FFA /* CardView.swift in Sources */,
+				09BF42321F08388100AFAD57 /* SecondaryCoordinator.swift in Sources */,
 				09BF41EF1F07F71F00AFAD57 /* AppDelegate.swift in Sources */,
+				09BF420E1F0833A700AFAD57 /* LocalVKDataTypes.swift in Sources */,
+				09BF42561F08413000AFAD57 /* MainViewController.swift in Sources */,
+				0919AEA71F0D3D9D00894FFA /* SecondaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		09BF41F21F07F71F00AFAD57 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09BF41F31F07F71F00AFAD57 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		09BF41F71F07F71F00AFAD57 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -266,7 +378,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8J63JZYYHZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Melk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilyakooo0.Melk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -279,7 +396,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8J63JZYYHZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Melk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ilyakooo0.Melk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -306,6 +428,7 @@
 				09BF41FF1F07F71F00AFAD57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

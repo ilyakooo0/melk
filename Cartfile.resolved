@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "4.5.0"
+github "WE-St0r/SwiftyVK" "2.0.8"
+github "kean/Nuke" "4.1.2"
+github "realm/realm-cocoa" "v2.8.3"
+github "tidwall/SwiftWebSocket" "2.6.5"
