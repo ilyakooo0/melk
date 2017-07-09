@@ -247,3 +247,13 @@ struct DecayingAverage {
         value = (value * weight + num) / (weight + 1)
     }
 }
+
+func mainSync(_ code: (() -> ())) {
+    if Thread.isMainThread {
+        code()
+    } else {
+        DispatchQueue.main.sync {
+            code()
+        }
+    }
+}

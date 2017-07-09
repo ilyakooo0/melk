@@ -9,29 +9,29 @@
 import SwiftyVK
 
 let permissions: Set<VK.Scope> = [
-    .notify,
-    .friends,
-    .photos,
-    .audio,
-    .video,
-    .docs,
-    .notes,
+//    .notify,
+//    .friends,
+//    .photos,
+//    .audio,
+//    .video,
+//    .docs,
+//    .notes,
     .pages,
-    .status,
-    .offers,
-    .questions,
+//    .status,
+//    .offers,
+//    .questions,
     .wall,
     .groups,
-    .messages,
-    .email,
-    .notifications,
-    .stats,
-    .ads,
-    .offline,
-    .market
+//    .messages,
+//    .email,
+//    .notifications,
+//    .stats,
+//    .ads,
+//    .offline,
+//    .market,
 ]
 let vkAPIVersion = "5.60"
-let appID = "5529752"
+let appID = "6097091"
 
 let multichatchatId = 2000000000
 

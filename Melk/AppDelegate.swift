@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyVK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainWindow.screen = UIScreen.main
         mainWindow.makeKeyAndVisible()
         coordinator = MainCoordinator(window: mainWindow)
+        coordinator.start()
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name.UIScreenDidConnect, object: nil, queue: OperationQueue.main) { (_) in
             self.updateScreens()
@@ -34,6 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let app = options[.sourceApplication] as? String
+        VK.process(url: url, sourceApplication: app)
+        return true
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
