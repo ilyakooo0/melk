@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftyVK
+//import SwiftyVK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,8 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let app = options[.sourceApplication] as? String
-        VK.process(url: url, sourceApplication: app)
         return true
     }
 

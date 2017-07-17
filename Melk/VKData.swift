@@ -7,10 +7,10 @@
 //
 
 import Foundation
-//import SwiftyJSON
+import SwiftyJSON
 import CoreLocation
 import RealmSwift
-import SwiftyVK
+//import SwiftyVK
 
 class VKData {
     //    var users: [UserID: User] = [:]
@@ -31,7 +31,7 @@ class VKData {
     //    var polls: [PollID: Poll] = [:]
     //    var photoAlbums: [PhotoAlbumID: PhotoAlbum] = [:]
     
-    class func processUser(json: SwiftyVK.JSON) -> User? {
+    class func processUser(json: JSON) -> User? {
         print("in")
         if let id = json["id"].int, let firstName = json["first_name"].string, let lastName = json["last_name"].string {
             var user: User!
@@ -90,7 +90,7 @@ class VKData {
         return nil
     }
     
-    class func processGeolocation(_ json: SwiftyVK.JSON) -> Geolocation? {
+    class func processGeolocation(_ json: JSON) -> Geolocation? {
         if let coords = json["coordinates"].string{
             let nums = coords.characters.split(separator: " ").map({ (n) -> Double? in
                 NumberFormatter().number(from: String(n))?.doubleValue
@@ -112,7 +112,7 @@ class VKData {
         }
     }
     
-    class func processMedia(_ json: SwiftyVK.JSON) -> Media? {
+    class func processMedia(_ json: JSON) -> Media? {
         if let type = json["type"].string {
             switch type {
             case "photo":
@@ -174,7 +174,7 @@ class VKData {
         return nil
     }
     
-    class func processPhotoAlbum(_ json: SwiftyVK.JSON) -> PhotoAlbum? {
+    class func processPhotoAlbum(_ json: JSON) -> PhotoAlbum? {
         if let id = json["id"].int{
             var album: PhotoAlbum!
             realmWrite { _ in
@@ -209,7 +209,7 @@ class VKData {
         return nil
     }
     
-    class func processGift(_ json: SwiftyVK.JSON) -> Gift? {
+    class func processGift(_ json: JSON) -> Gift? {
         if let id = json["id"].int {
             var gift: Gift!
             realmWrite({ _ in
@@ -221,7 +221,7 @@ class VKData {
         return nil
     }
     
-    class func processWallPostReply(_ json: SwiftyVK.JSON) -> WallPostReply? {
+    class func processWallPostReply(_ json: JSON) -> WallPostReply? {
         let likes = json["likes"]
         if let id = json["id"].int {
             var reply: WallPostReply!
@@ -248,7 +248,7 @@ class VKData {
         return nil
     }
     
-    class func processPollAnswer(_ json: SwiftyVK.JSON) -> PollAnswer? {
+    class func processPollAnswer(_ json: JSON) -> PollAnswer? {
         if let id = json["id"].int,
             let body = json["text"].string,
             let votes = json["votes"].int,
@@ -258,7 +258,7 @@ class VKData {
         return nil
     }
     
-    class func processPoll(_ json: SwiftyVK.JSON) -> Poll? {
+    class func processPoll(_ json: JSON) -> Poll? {
         if let id = json["id"].int {
             var poll: Poll!
             realmWrite { _ in
@@ -279,7 +279,7 @@ class VKData {
         return nil
     }
     
-    class func processPhoto(_ json: SwiftyVK.JSON) -> Photo? {
+    class func processPhoto(_ json: JSON) -> Photo? {
         if let id = json["id"].int {
             var photo: Photo!
             realmWrite { _ in
@@ -312,7 +312,7 @@ class VKData {
         }
     }
     
-    class func processVideo(_ json: SwiftyVK.JSON) -> Video? {
+    class func processVideo(_ json: JSON) -> Video? {
         if let id = json["id"].int {
             var video: Video!
             realmWrite { _ in
@@ -337,7 +337,7 @@ class VKData {
         }
     }
     
-    class func processAudio(_ json: SwiftyVK.JSON) -> Audio? {
+    class func processAudio(_ json: JSON) -> Audio? {
         if let id = json["id"].int {
             var audio: Audio!
             realmWrite { _ in
@@ -354,7 +354,7 @@ class VKData {
         }
     }
     
-    class func processDocument(_ json: SwiftyVK.JSON) -> Document? {
+    class func processDocument(_ json: JSON) -> Document? {
         if let id = json["id"].int {
             var doc: Document!
             realmWrite { _ in
@@ -371,7 +371,7 @@ class VKData {
         return nil
     }
     
-    class func processSticker(_ json: SwiftyVK.JSON) -> Sticker? {
+    class func processSticker(_ json: JSON) -> Sticker? {
         if let id = json["id"].int,
             let pack = json["product_id"].int {
             var sticker: Sticker!
@@ -387,7 +387,7 @@ class VKData {
         return nil
     }
     
-    class func processRating(_ json: SwiftyVK.JSON) -> Rating? {
+    class func processRating(_ json: JSON) -> Rating? {
         if let stars = json["stars"].int,
             let reviewCount = json["reviews_count"].int {
             return Rating(stars: stars, reviewCount: reviewCount)
@@ -395,7 +395,7 @@ class VKData {
         return nil
     }
     
-    class func processButton(_ json: SwiftyVK.JSON) -> LinkButton? {
+    class func processButton(_ json: JSON) -> LinkButton? {
         if let title = json["title"].string,
             let surl = json["url"].string,
             let url = URL(string: surl) {
@@ -404,7 +404,7 @@ class VKData {
         return nil
     }
     
-    class func processLink(_ json: SwiftyVK.JSON) -> Link? {
+    class func processLink(_ json: JSON) -> Link? {
         if let surl = json["url"].string {
             var link: Link!
             realmWrite({ (_) in
@@ -422,7 +422,7 @@ class VKData {
         return nil
     }
     
-    class func processWallPost(_ json: SwiftyVK.JSON) -> WallPost? {
+    class func processWallPost(_ json: JSON) -> WallPost? {
         let comments = json["comments"]
         let likes = json["likes"]
         let reposts = json["reposts"]
@@ -469,7 +469,7 @@ class VKData {
         return nil
     }
     
-    class func prpocessServiceMessageAction(_ json: SwiftyVK.JSON) -> ServiceMessageAction? {
+    class func prpocessServiceMessageAction(_ json: JSON) -> ServiceMessageAction? {
         if let sAction = json["action"].string {
             switch sAction {
             case "chat_photo_update":
@@ -519,7 +519,7 @@ class VKData {
         return nil
     }
     
-    class func processMessage(_ json: SwiftyVK.JSON) -> Message? {
+    class func processMessage(_ json: JSON) -> Message? {
         if let user = json["user_id"].int >>> {User.by(id: $0)},
             let date = json["date"].int >>> {Date(timeIntervalSince1970: TimeInterval($0))},
             let id = json["id"].int {
@@ -556,7 +556,7 @@ class VKData {
         }
     }
     
-    class func processGenericMessage(_ json: SwiftyVK.JSON) -> GenericMessage? {
+    class func processGenericMessage(_ json: JSON) -> GenericMessage? {
         if let user = json["user_id"].int >>> {User.by(id: $0)},
             let date = json["date"].int >>> {Date(timeIntervalSince1970: TimeInterval($0))} {
             let message = GenericMessage()
@@ -587,7 +587,7 @@ class VKData {
 
     
     
-    class func processNotificationSettings(_ json: SwiftyVK.JSON) -> ChatNotificationSettings? {
+    class func processNotificationSettings(_ json: JSON) -> ChatNotificationSettings? {
         if let sound = json["sound"].int,
             let date = json["disabled_until"].int {
             if date == -1 {
@@ -600,7 +600,7 @@ class VKData {
         }
     }
     
-    class func processMultichat(_ json: SwiftyVK.JSON) -> Multichat? { // from .getChat
+    class func processMultichat(_ json: JSON) -> Multichat? { // from .getChat
         if let id = json["id"].int {
             var chat: Multichat!
             realmWrite { _ in
@@ -634,7 +634,7 @@ class VKData {
         return nil
     }
     
-    class func processDialog(_ json: SwiftyVK.JSON) -> Dialog? {
+    class func processDialog(_ json: JSON) -> Dialog? {
         let message = json["message"]
         if let id = message["chat_id"].int { // Multichat
             if let sMessage = processMessage(message) {

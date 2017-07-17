@@ -10,7 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    let mainView = MainView()
+    var present: (([String]) -> ())?
+    
+    private let mainView = MainView()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -26,7 +28,7 @@ class MainViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func presentTags() {
+    @objc private func presentTags() {
         
     }
 }

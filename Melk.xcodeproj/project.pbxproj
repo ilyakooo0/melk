@@ -12,6 +12,7 @@
 		0919AEAD1F0D706700894FFA /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919AEAC1F0D706700894FFA /* StackView.swift */; };
 		09939A561F097DA90014719D /* TableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09939A551F097DA90014719D /* TableViewCells.swift */; };
 		09A456361F0ED9A800BAC32D /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A456351F0ED9A800BAC32D /* CollectionView.swift */; };
+		09AFAB041F159C9200EBD200 /* StreamingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AFAB031F159C9200EBD200 /* StreamingService.swift */; };
 		09B781591F11630D0007D2BF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 09B781581F11630D0007D2BF /* .gitignore */; };
 		09BF41EF1F07F71F00AFAD57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF41EE1F07F71F00AFAD57 /* AppDelegate.swift */; };
 		09BF41F61F07F71F00AFAD57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09BF41F51F07F71F00AFAD57 /* Assets.xcassets */; };
@@ -23,37 +24,41 @@
 		09BF42141F08341B00AFAD57 /* PublicCrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42121F08341B00AFAD57 /* PublicCrap.swift */; };
 		09BF42161F0834D400AFAD57 /* VKPublicCrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42151F0834D400AFAD57 /* VKPublicCrap.swift */; };
 		09BF42181F08352E00AFAD57 /* VKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42171F08352E00AFAD57 /* VKData.swift */; };
-		09BF421A1F08357E00AFAD57 /* VkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42191F08357E00AFAD57 /* VkServices.swift */; };
-		09BF42261F0835B200AFAD57 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42021F080A5700AFAD57 /* Alamofire.framework */; };
-		09BF42271F0835B200AFAD57 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42021F080A5700AFAD57 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		09BF42281F0835B200AFAD57 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42031F080A5700AFAD57 /* Nuke.framework */; };
-		09BF42291F0835B200AFAD57 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42031F080A5700AFAD57 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		09BF422A1F0835B200AFAD57 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42041F080A5700AFAD57 /* Realm.framework */; };
-		09BF422B1F0835B200AFAD57 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42041F080A5700AFAD57 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		09BF422C1F0835B200AFAD57 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42051F080A5700AFAD57 /* RealmSwift.framework */; };
-		09BF422D1F0835B200AFAD57 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42051F080A5700AFAD57 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		09BF422E1F0835B200AFAD57 /* SwiftyVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42061F080A5700AFAD57 /* SwiftyVK.framework */; };
-		09BF422F1F0835B200AFAD57 /* SwiftyVK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42061F080A5700AFAD57 /* SwiftyVK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		09BF42321F08388100AFAD57 /* SecondaryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42311F08388100AFAD57 /* SecondaryCoordinator.swift */; };
-		09BF42341F083B5800AFAD57 /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */; };
-		09BF42351F083B6000AFAD57 /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */; };
-		09BF42361F083B6000AFAD57 /* SwiftWebSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		09BF42561F08413000AFAD57 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF42551F08413000AFAD57 /* MainViewController.swift */; };
+		09F03F231F164E7E000CE916 /* StreamingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F03F221F164E7E000CE916 /* StreamingParser.swift */; };
+		09F03F261F165884000CE916 /* Decodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F03F241F165876000CE916 /* Decodable.framework */; };
+		09F03F271F165884000CE916 /* Decodable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09F03F241F165876000CE916 /* Decodable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09F03F281F165884000CE916 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09AFAAFF1F159AE300EBD200 /* SwiftyJSON.framework */; };
+		09F03F291F165884000CE916 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09AFAAFF1F159AE300EBD200 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09F03F2A1F165884000CE916 /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */; };
+		09F03F2B1F165884000CE916 /* SwiftWebSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09F03F2C1F165884000CE916 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42021F080A5700AFAD57 /* Alamofire.framework */; };
+		09F03F2D1F165884000CE916 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42021F080A5700AFAD57 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09F03F2E1F165884000CE916 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42031F080A5700AFAD57 /* Nuke.framework */; };
+		09F03F2F1F165884000CE916 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42031F080A5700AFAD57 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09F03F301F165884000CE916 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42041F080A5700AFAD57 /* Realm.framework */; };
+		09F03F311F165884000CE916 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42041F080A5700AFAD57 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09F03F321F165884000CE916 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42051F080A5700AFAD57 /* RealmSwift.framework */; };
+		09F03F331F165884000CE916 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF42051F080A5700AFAD57 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09F03F361F1674ED000CE916 /* VKServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F03F351F1674ED000CE916 /* VKServer.swift */; };
+		09F0D79E1F129DCB00A13751 /* Streaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F0D79D1F129DCB00A13751 /* Streaming.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		09BF42301F0835B200AFAD57 /* Embed Frameworks */ = {
+		09F03F341F165884000CE916 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				09BF422B1F0835B200AFAD57 /* Realm.framework in Embed Frameworks */,
-				09BF42271F0835B200AFAD57 /* Alamofire.framework in Embed Frameworks */,
-				09BF42361F083B6000AFAD57 /* SwiftWebSocket.framework in Embed Frameworks */,
-				09BF422F1F0835B200AFAD57 /* SwiftyVK.framework in Embed Frameworks */,
-				09BF422D1F0835B200AFAD57 /* RealmSwift.framework in Embed Frameworks */,
-				09BF42291F0835B200AFAD57 /* Nuke.framework in Embed Frameworks */,
+				09F03F311F165884000CE916 /* Realm.framework in Embed Frameworks */,
+				09F03F291F165884000CE916 /* SwiftyJSON.framework in Embed Frameworks */,
+				09F03F331F165884000CE916 /* RealmSwift.framework in Embed Frameworks */,
+				09F03F271F165884000CE916 /* Decodable.framework in Embed Frameworks */,
+				09F03F2F1F165884000CE916 /* Nuke.framework in Embed Frameworks */,
+				09F03F2B1F165884000CE916 /* SwiftWebSocket.framework in Embed Frameworks */,
+				09F03F2D1F165884000CE916 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +71,8 @@
 		0919AEAC1F0D706700894FFA /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		09939A551F097DA90014719D /* TableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCells.swift; sourceTree = "<group>"; };
 		09A456351F0ED9A800BAC32D /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		09AFAAFF1F159AE300EBD200 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
+		09AFAB031F159C9200EBD200 /* StreamingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamingService.swift; sourceTree = "<group>"; };
 		09B781581F11630D0007D2BF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		09BF41EB1F07F71F00AFAD57 /* Melk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Melk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09BF41EE1F07F71F00AFAD57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,17 +84,19 @@
 		09BF42031F080A5700AFAD57 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = SOURCE_ROOT; };
 		09BF42041F080A5700AFAD57 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = SOURCE_ROOT; };
 		09BF42051F080A5700AFAD57 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = SOURCE_ROOT; };
-		09BF42061F080A5700AFAD57 /* SwiftyVK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyVK.framework; path = Carthage/Build/iOS/SwiftyVK.framework; sourceTree = SOURCE_ROOT; };
 		09BF420D1F0833A700AFAD57 /* LocalVKDataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalVKDataTypes.swift; sourceTree = "<group>"; };
 		09BF420F1F0833C100AFAD57 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		09BF42111F08341B00AFAD57 /* MyWeirdness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWeirdness.swift; sourceTree = "<group>"; };
 		09BF42121F08341B00AFAD57 /* PublicCrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicCrap.swift; sourceTree = "<group>"; };
 		09BF42151F0834D400AFAD57 /* VKPublicCrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKPublicCrap.swift; sourceTree = "<group>"; };
 		09BF42171F08352E00AFAD57 /* VKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKData.swift; sourceTree = "<group>"; };
-		09BF42191F08357E00AFAD57 /* VkServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VkServices.swift; sourceTree = "<group>"; };
 		09BF42311F08388100AFAD57 /* SecondaryCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryCoordinator.swift; sourceTree = "<group>"; };
 		09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = Carthage/Build/iOS/SwiftWebSocket.framework; sourceTree = SOURCE_ROOT; };
 		09BF42551F08413000AFAD57 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		09F03F221F164E7E000CE916 /* StreamingParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamingParser.swift; sourceTree = "<group>"; };
+		09F03F241F165876000CE916 /* Decodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Decodable.framework; path = Carthage/Build/iOS/Decodable.framework; sourceTree = SOURCE_ROOT; };
+		09F03F351F1674ED000CE916 /* VKServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKServer.swift; sourceTree = "<group>"; };
+		09F0D79D1F129DCB00A13751 /* Streaming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Streaming.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,13 +104,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09BF422A1F0835B200AFAD57 /* Realm.framework in Frameworks */,
-				09BF42261F0835B200AFAD57 /* Alamofire.framework in Frameworks */,
-				09BF42341F083B5800AFAD57 /* SwiftWebSocket.framework in Frameworks */,
-				09BF422E1F0835B200AFAD57 /* SwiftyVK.framework in Frameworks */,
-				09BF422C1F0835B200AFAD57 /* RealmSwift.framework in Frameworks */,
-				09BF42281F0835B200AFAD57 /* Nuke.framework in Frameworks */,
-				09BF42351F083B6000AFAD57 /* SwiftWebSocket.framework in Frameworks */,
+				09F03F301F165884000CE916 /* Realm.framework in Frameworks */,
+				09F03F281F165884000CE916 /* SwiftyJSON.framework in Frameworks */,
+				09F03F321F165884000CE916 /* RealmSwift.framework in Frameworks */,
+				09F03F261F165884000CE916 /* Decodable.framework in Frameworks */,
+				09F03F2E1F165884000CE916 /* Nuke.framework in Frameworks */,
+				09F03F2A1F165884000CE916 /* SwiftWebSocket.framework in Frameworks */,
+				09F03F2C1F165884000CE916 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +148,10 @@
 				09BF41EE1F07F71F00AFAD57 /* AppDelegate.swift */,
 				09BF42111F08341B00AFAD57 /* MyWeirdness.swift */,
 				09BF42121F08341B00AFAD57 /* PublicCrap.swift */,
+				09F0D79D1F129DCB00A13751 /* Streaming.swift */,
+				09AFAB031F159C9200EBD200 /* StreamingService.swift */,
+				09F03F221F164E7E000CE916 /* StreamingParser.swift */,
+				09F03F351F1674ED000CE916 /* VKServer.swift */,
 				09BF420F1F0833C100AFAD57 /* MainCoordinator.swift */,
 				09BF42311F08388100AFAD57 /* SecondaryCoordinator.swift */,
 				0919AEA81F0D459600894FFA /* CardView.swift */,
@@ -147,7 +160,6 @@
 				09939A551F097DA90014719D /* TableViewCells.swift */,
 				09BF420D1F0833A700AFAD57 /* LocalVKDataTypes.swift */,
 				09BF42151F0834D400AFAD57 /* VKPublicCrap.swift */,
-				09BF42191F08357E00AFAD57 /* VkServices.swift */,
 				09BF42171F08352E00AFAD57 /* VKData.swift */,
 				09BF41F51F07F71F00AFAD57 /* Assets.xcassets */,
 				09BF41F71F07F71F00AFAD57 /* LaunchScreen.storyboard */,
@@ -163,12 +175,13 @@
 		09BF420C1F080A5F00AFAD57 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				09F03F241F165876000CE916 /* Decodable.framework */,
+				09AFAAFF1F159AE300EBD200 /* SwiftyJSON.framework */,
 				09BF42331F083B5800AFAD57 /* SwiftWebSocket.framework */,
 				09BF42021F080A5700AFAD57 /* Alamofire.framework */,
 				09BF42031F080A5700AFAD57 /* Nuke.framework */,
 				09BF42041F080A5700AFAD57 /* Realm.framework */,
 				09BF42051F080A5700AFAD57 /* RealmSwift.framework */,
-				09BF42061F080A5700AFAD57 /* SwiftyVK.framework */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
@@ -183,7 +196,7 @@
 				09BF41E71F07F71F00AFAD57 /* Sources */,
 				09BF41E81F07F71F00AFAD57 /* Frameworks */,
 				09BF41E91F07F71F00AFAD57 /* Resources */,
-				09BF42301F0835B200AFAD57 /* Embed Frameworks */,
+				09F03F341F165884000CE916 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,17 +262,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				09939A561F097DA90014719D /* TableViewCells.swift in Sources */,
+				09F03F361F1674ED000CE916 /* VKServer.swift in Sources */,
 				0919AEAD1F0D706700894FFA /* StackView.swift in Sources */,
 				09BF42141F08341B00AFAD57 /* PublicCrap.swift in Sources */,
 				09BF42161F0834D400AFAD57 /* VKPublicCrap.swift in Sources */,
+				09F0D79E1F129DCB00A13751 /* Streaming.swift in Sources */,
 				09BF42181F08352E00AFAD57 /* VKData.swift in Sources */,
 				09BF42101F0833C100AFAD57 /* MainCoordinator.swift in Sources */,
 				09A456361F0ED9A800BAC32D /* CollectionView.swift in Sources */,
-				09BF421A1F08357E00AFAD57 /* VkServices.swift in Sources */,
 				09BF42131F08341B00AFAD57 /* MyWeirdness.swift in Sources */,
 				0919AEA91F0D459600894FFA /* CardView.swift in Sources */,
 				09BF42321F08388100AFAD57 /* SecondaryCoordinator.swift in Sources */,
 				09BF41EF1F07F71F00AFAD57 /* AppDelegate.swift in Sources */,
+				09AFAB041F159C9200EBD200 /* StreamingService.swift in Sources */,
+				09F03F231F164E7E000CE916 /* StreamingParser.swift in Sources */,
 				09BF420E1F0833A700AFAD57 /* LocalVKDataTypes.swift in Sources */,
 				09BF42561F08413000AFAD57 /* MainViewController.swift in Sources */,
 				0919AEA71F0D3D9D00894FFA /* SecondaryViewController.swift in Sources */,

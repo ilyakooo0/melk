@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import SwiftyVK
+import RealmSwift
+//import SwiftyVK
 
 class MainCoordinator {
     let window: UIWindow
@@ -15,35 +16,42 @@ class MainCoordinator {
     let loadingVC = UIViewController() // TODO: An actual loading VC
     let navC: UINavigationController!
     let secondaryCoord = SecondaryCoordinator()
+    let stream = StreamingService()
     init(window: UIWindow) {
         self.window = window
         window.rootViewController = loadingVC
         
+        Realm.Configuration.defaultConfiguration = Realm.Configuration
+            .init(inMemoryIdentifier: "com.ilyakooo0.Melk.realm",
+                  readOnly: false,
+                  deleteRealmIfMigrationNeeded: true)
         
         navC = UINavigationController(rootViewController: mainVC)
         updateScreens()
-        
+        stream.handleResult = { result in
+//            switch result {
+//            case .post(let post):
+//                
+//            }
+        }
     }
     
     func start() {
-        VK.configure(withAppId: appID, delegate: self)
-        if VK.state == .authorized {
-            authorized()
-        } else {
-            VK.logIn()
-        }
+//        VK.configure(withAppId: appID, delegate: self)
+//        if VK.state != .authorized {
+//            VK.logIn()
+//        }
+        print("didAuthorize")
+        window.rootViewController = navC
+        stream.rules = ["я", "а"]
+        stream.connect()
     }
     
     func updateScreens() {
         secondaryCoord.updateScreens()
     }
-    
-    fileprivate func authorized() {
-        print("didAuthorize")
-        window.rootViewController = navC
-    }
 }
-
+/*
 extension MainCoordinator: VKDelegate {
     /** ---DEPRECATED. TOKEN NOW STORED IN KEYCHAIN--- Called when SwiftyVK need know where a token is located
      - returns: Path to save/read token or nil if should save token to UserDefaults*/
@@ -93,3 +101,4 @@ extension MainCoordinator: VKDelegate {
     }
     
 }
+ */

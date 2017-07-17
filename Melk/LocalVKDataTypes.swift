@@ -11,7 +11,8 @@ import RealmSwift
 import Alamofire
 import CoreLocation
 import Nuke
-import SwiftyVK
+import SwiftyJSON
+//import SwiftyVK
 
 
 typealias Token = String
@@ -292,17 +293,25 @@ class User: Object {
         }
     }
     
+//    func get(completion: ((User?) -> ())? = nil) {
+//        VK.API.Users.get([VK.Arg.userIDs: "\(id)"]).send(onSuccess: { (response) in
+//            if let json = response.array?.first {
+//                let us = VKData.processUser(json: json)
+//                completion?(us)
+//            } else {
+//                completion?(nil)
+//            }
+//        }, onError: { (error) in
+//            completion?(nil)
+//        })
+//    }
     func get(completion: ((User?) -> ())? = nil) {
-        VK.API.Users.get([VK.Arg.userIDs: "\(id)"]).send(onSuccess: { (response) in
-            if let json = response.array?.first {
-                let us = VKData.processUser(json: json)
-                completion?(us)
-            } else {
-                completion?(nil)
+        VKServer.get(user: self) { (data) in
+            if let json = JSON.init(data: data)["response"].array?.first {
+                let user = VKData.processUser(json: json)
+                completion?(user)
             }
-        }, onError: { (error) in
-            completion?(nil)
-        })
+        }
     }
     
     
@@ -493,19 +502,19 @@ class Message: GenericMessage, Comparable, SortedArrayItem {
         }
     }
     
-    func get(completion: ((Message?) -> ())? = nil) {
-        VK.API.Messages.getById([VK.Arg.messageIds: String(id)]).send(onSuccess: { (response) in
-            if let json = response.array?.first {
-                let mes = VKData.processMessage(response)
-                completion?(mes)
-            } else {
-                completion?(nil)
-            }
-        }, onError: { (error) in
-            completion?(nil)
-        })
-        // TODO: Implement propperly?
-    }
+//    func get(completion: ((Message?) -> ())? = nil) {
+//        VK.API.Messages.getById([VK.Arg.messageIds: String(id)]).send(onSuccess: { (response) in
+//            if let json = response.array?.first {
+//                let mes = VKData.processMessage(response)
+//                completion?(mes)
+//            } else {
+//                completion?(nil)
+//            }
+//        }, onError: { (error) in
+//            completion?(nil)
+//        })
+//        // TODO: Implement propperly?
+//    }
     
     class func by(id: MessageID) -> Message {
         let realm = try! Realm()
@@ -1239,24 +1248,32 @@ class Photo: Object {
         }
     }
     
+//    func get(completion: ((Photo?) -> ())? = nil) {
+//        if let ownerID = owner?.id {
+//            var ph = "\(ownerID)_\(id)"
+//            if let key = accessKey {
+//                ph.append("_\(key)")
+//            }
+//            VK.API.Photos.getById([VK.Arg.photos: ph]).send(onSuccess: { (response) in
+//                if let json = response.array?.first {
+//                    let photo = VKData.processPhoto(json)
+//                    completion?(photo)
+//                } else {
+//                    completion?(nil)
+//                }
+//            }, onError: { (error) in
+//                completion?(nil)
+//            })
+//        } else {
+//            completion?(nil)
+//        }
+//    }
     func get(completion: ((Photo?) -> ())? = nil) {
-        if let ownerID = owner?.id {
-            var ph = "\(ownerID)_\(id)"
-            if let key = accessKey {
-                ph.append("_\(key)")
+        VKServer.get(photo: self) { data in
+            if let json = JSON.init(data: data)["response"].array?.first {
+                let photo = VKData.processPhoto(json)
+                completion?(photo)
             }
-            VK.API.Photos.getById([VK.Arg.photos: ph]).send(onSuccess: { (response) in
-                if let json = response.array?.first {
-                    let photo = VKData.processPhoto(json)
-                    completion?(photo)
-                } else {
-                    completion?(nil)
-                }
-            }, onError: { (error) in
-                completion?(nil)
-            })
-        } else {
-            completion?(nil)
         }
     }
     
@@ -1366,33 +1383,42 @@ class WallPost: Object {
     //        self.copyOwnerID = copyOwnerID
     //    }
     
+//    func get(completion: ((WallPost?) -> ())? = nil) {
+//        if let ownerID = owner?.id {
+//            var ph = "\(ownerID)_\(id)"
+//            //            if let key = accessKey {
+//            //                ph.append("_\(key)")
+//            //            }
+//            VK.API.Wall.getById([VK.Arg.posts: ph]).send(onSuccess: { (response) in
+//                if let json = response.array?.first {
+//                    let photo = VKData.processWallPost(json)
+//                    completion?(photo)
+//                } else {
+//                    completion?(nil)
+//                }
+//            }, onError: { (error) in
+//                completion?(nil)
+//            })
+//        } else {
+//            completion?(nil)
+//        }
+//    }
     func get(completion: ((WallPost?) -> ())? = nil) {
-        if let ownerID = owner?.id {
-            var ph = "\(ownerID)_\(id)"
-            //            if let key = accessKey {
-            //                ph.append("_\(key)")
-            //            }
-            VK.API.Wall.getById([VK.Arg.posts: ph]).send(onSuccess: { (response) in
-                if let json = response.array?.first {
-                    let photo = VKData.processWallPost(json)
-                    completion?(photo)
-                } else {
-                    completion?(nil)
-                }
-            }, onError: { (error) in
-                completion?(nil)
-            })
-        } else {
-            completion?(nil)
+        VKServer.get(wallPost: self) { (data) in
+            if let json = JSON.init(data: data)["response"].array?.first {
+                let post = VKData.processWallPost(json)
+                completion?(post)
+            }
         }
     }
+
     
     
     override class func primaryKey() -> String? {
         return "id"
     }
     
-    class func by(id: UserID) -> WallPost {
+    class func by(id: WallPostID) -> WallPost {
         let realm = try! Realm()
         if let us = realm.object(ofType: WallPost.self, forPrimaryKey: id) {
             return us
@@ -1430,6 +1456,10 @@ class WallPostReply: Object {
             realm.add(us)
             return us
         }
+    }
+    
+    func get(completion: (() -> ())) {
+        // TODO: Get wallPostReply
     }
     
     override class func primaryKey() -> String? {
@@ -1712,24 +1742,32 @@ class Video: Object {
         }
     }
     
+//    func get(completion: ((Video?) -> ())? = nil) {
+//        if let peerID = owner?.id {
+//            var vi = "\(peerID)_\(id)"
+//            if let key = accessKey {
+//                vi.append("_\(key)")
+//            }
+//            VK.API.Video.get([VK.Arg.videos: vi]).send(onSuccess: { (response) in
+//                if let json = response["items"].array?.first {
+//                    let video = VKData.processVideo(json)
+//                    completion?(video)
+//                } else {
+//                    completion?(nil)
+//                }
+//            }, onError: { (error) in
+//                completion?(nil)
+//            })
+//        } else {
+//            completion?(nil)
+//        }
+//    }
     func get(completion: ((Video?) -> ())? = nil) {
-        if let peerID = owner?.id {
-            var vi = "\(peerID)_\(id)"
-            if let key = accessKey {
-                vi.append("_\(key)")
+        VKServer.get(video: self) { (data) in
+            if let json = JSON.init(data: data)["response"].array?.first {
+                let video = VKData.processVideo(json)
+                completion?(video)
             }
-            VK.API.Video.get([VK.Arg.videos: vi]).send(onSuccess: { (response) in
-                if let json = response["items"].array?.first {
-                    let video = VKData.processVideo(json)
-                    completion?(video)
-                } else {
-                    completion?(nil)
-                }
-            }, onError: { (error) in
-                completion?(nil)
-            })
-        } else {
-            completion?(nil)
         }
     }
     
@@ -1836,24 +1874,32 @@ class Document: Object {
         }
     }
     
+//    func get(completion: ((Document?) -> ())? = nil) {
+//        if let ownerID = owner?.id {
+//            var doc = "\(ownerID)_\(id)"
+//            //            if let key = accessKey {
+//            //                doc.append("_\(key)")
+//            //            }
+//            VK.API.Docs.getById([VK.Arg.docs: doc]).send(onSuccess: { response in
+//                if let json = response.array?.first {
+//                    let document = VKData.processDocument(json)
+//                    completion?(document)
+//                } else {
+//                    completion?(nil)
+//                }
+//            }, onError: { (error) in
+//                completion?(nil)
+//            })
+//        } else {
+//            completion?(nil)
+//        }
+//    }
     func get(completion: ((Document?) -> ())? = nil) {
-        if let ownerID = owner?.id {
-            var doc = "\(ownerID)_\(id)"
-            //            if let key = accessKey {
-            //                doc.append("_\(key)")
-            //            }
-            VK.API.Docs.getById([VK.Arg.docs: doc]).send(onSuccess: { response in
-                if let json = response.array?.first {
-                    let document = VKData.processDocument(json)
-                    completion?(document)
-                } else {
-                    completion?(nil)
-                }
-            }, onError: { (error) in
-                completion?(nil)
-            })
-        } else {
-            completion?(nil)
+        VKServer.get(doc: self) { (data) in
+            if let json = JSON.init(data: data)["response"].array?.first {
+                let doc = VKData.processDocument(json)
+                completion?(doc)
+            }
         }
     }
     
@@ -2053,7 +2099,7 @@ class Multichat: Object {
         if let us = realm.object(ofType: Multichat.self, forPrimaryKey: id) {
             return us
         } else {
-            VkServices.getMultichat(for: id)
+//            VkServices.getMultichat(for: id)
             let us = Multichat()
             realmWrite { realm in
                 us.id = id

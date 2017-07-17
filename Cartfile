@@ -1,5 +1,8 @@
 github "Alamofire/Alamofire"
-github "WE-St0r/SwiftyVK"
+# github "WE-St0r/SwiftyVK"
 github "kean/Nuke" ~> 4.0
 github "realm/realm-cocoa.git"
 github "tidwall/SwiftWebSocket"
+# github "SwiftyJSON/SwiftyJSON"
+# github "utahiosmac/Marshal"
+github "Anviking/Decodable"
