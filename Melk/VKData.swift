@@ -430,7 +430,7 @@ class VKData {
             var post: WallPost!
             realmWrite { _ in
                 post = WallPost.by(id: id)
-                post.owner = json["to_id"].int >>> {User.by(id: $0)}
+                post.owner = json["owner_id"].int >>> {User.by(id: $0)}
                 post.creator = json["from_id"].int >>> {User.by(id: $0)}
                 post.date = json["date"].int >>> {Date.init(timeIntervalSince1970: TimeInterval($0))}
                 post.body = json["text"].string

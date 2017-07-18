@@ -117,6 +117,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		098397F71F1E887F008C88DD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				09BF420F1F0833C100AFAD57 /* MainCoordinator.swift */,
+				09BF42551F08413000AFAD57 /* MainViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		098397F81F1E888F008C88DD /* Secondary */ = {
+			isa = PBXGroup;
+			children = (
+				09BF42311F08388100AFAD57 /* SecondaryCoordinator.swift */,
+				0919AEA61F0D3D9D00894FFA /* SecondaryViewController.swift */,
+			);
+			name = Secondary;
+			sourceTree = "<group>";
+		};
+		098397F91F1E88A3008C88DD /* Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				09AFAB031F159C9200EBD200 /* StreamingService.swift */,
+				09F03F221F164E7E000CE916 /* StreamingParser.swift */,
+				09F0D79D1F129DCB00A13751 /* Streaming.swift */,
+			);
+			name = Streaming;
+			sourceTree = "<group>";
+		};
 		09A456341F0ED98800BAC32D /* Public */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,18 +173,14 @@
 		09BF41ED1F07F71F00AFAD57 /* Melk */ = {
 			isa = PBXGroup;
 			children = (
+				098397F71F1E887F008C88DD /* Main */,
+				098397F81F1E888F008C88DD /* Secondary */,
+				098397F91F1E88A3008C88DD /* Streaming */,
 				09BF41EE1F07F71F00AFAD57 /* AppDelegate.swift */,
 				09BF42111F08341B00AFAD57 /* MyWeirdness.swift */,
 				09BF42121F08341B00AFAD57 /* PublicCrap.swift */,
-				09F0D79D1F129DCB00A13751 /* Streaming.swift */,
-				09AFAB031F159C9200EBD200 /* StreamingService.swift */,
-				09F03F221F164E7E000CE916 /* StreamingParser.swift */,
 				09F03F351F1674ED000CE916 /* VKServer.swift */,
-				09BF420F1F0833C100AFAD57 /* MainCoordinator.swift */,
-				09BF42311F08388100AFAD57 /* SecondaryCoordinator.swift */,
 				0919AEA81F0D459600894FFA /* CardView.swift */,
-				0919AEA61F0D3D9D00894FFA /* SecondaryViewController.swift */,
-				09BF42551F08413000AFAD57 /* MainViewController.swift */,
 				09939A551F097DA90014719D /* TableViewCells.swift */,
 				09BF420D1F0833A700AFAD57 /* LocalVKDataTypes.swift */,
 				09BF42151F0834D400AFAD57 /* VKPublicCrap.swift */,

@@ -12,6 +12,7 @@ class CardView: UIView {
     
     var post: WallPost? {
         didSet {
+            print(post?.owner)
             update()
         }
     }

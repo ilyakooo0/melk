@@ -21,28 +21,23 @@ class StreamingParser {
                 let postID: WallPostID = try eventID => "post_id"
                 let ownerID: UserID = try eventID => "post_owner_id"
                 //                let
+                var post: WallPost!
+                var comp = 2
                 realmWrite { _ in
-                    let post = WallPost.by(id: postID)
+                    post = WallPost.by(id: postID)
                     post.owner = User.by(id: ownerID)
-                    var comp = 2
-                    let complete = {
-                        comp -= 1
-                        if comp == 0 {
-                            completion(.post(post))
-                        }
-                    }
                     switch eventType {
                     case "post":
                         break
                     case "comment":
                         /*
-                        if let id: Int = try? eventID => "comment_id" {
-                            let comment = WallPostReply.by(id: id)
-                            comment.wallPost = post
-                            comp += 1
-                            comment // TODO: get comment
-                        }
- */
+                         if let id: Int = try? eventID => "comment_id" {
+                         let comment = WallPostReply.by(id: id)
+                         comment.wallPost = post
+                         comp += 1
+                         comment // TODO: get comment
+                         }
+                         */
                         print("comment not implemented")
                         
                     case "share":
@@ -50,13 +45,21 @@ class StreamingParser {
                     default:
                         print("error:\n\(json)")
                     }
-                    post.owner?.get(completion: { (_) in
-                        complete()
-                    })
-                    post.get(completion: { (_) in
-                        complete()
-                    })
                 }
+//                print(post.owner)
+                let complete = {
+                    comp -= 1
+                    if comp == 0 {
+                        print(post.owner)
+                        completion(.post(post))
+                    }
+                }
+                post.owner?.get(completion: { (_) in
+                    complete()
+                })
+                post.get(completion: { (_) in
+                    complete()
+                })
             break // handle event
             case 300:
             break // handle service message

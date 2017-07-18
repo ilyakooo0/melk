@@ -80,7 +80,8 @@ class VKServer {
     static func get(user: User, completion: @escaping ((Data) -> ())) {
         let id = user.id
         let params: Parameters = [
-            "user_ids": id
+            "user_ids": id,
+            "fields": "photo_max"
         ]
         Alamofire.request(url(for: "users.get"), parameters: params)
             .validate().responseData { (response) in

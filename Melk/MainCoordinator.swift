@@ -29,6 +29,7 @@ class MainCoordinator {
         navC = UINavigationController(rootViewController: mainVC)
         updateScreens()
         stream.handleResult = { result in
+            self.secondaryCoord.add(result: result)
 //            switch result {
 //            case .post(let post):
 //                
