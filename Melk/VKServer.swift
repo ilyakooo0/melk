@@ -81,7 +81,7 @@ class VKServer {
         let id = user.id
         let params: Parameters = [
             "user_ids": id,
-            "fields": "photo_max"
+            "fields": "photo_100"
         ]
         Alamofire.request(url(for: "users.get"), parameters: params)
             .validate().responseData { (response) in

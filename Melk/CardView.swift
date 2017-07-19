@@ -12,7 +12,17 @@ class CardView: UIView {
     
     var post: WallPost? {
         didSet {
-            print(post?.owner)
+//            print(post?.owner)
+            update()
+        }
+    }
+    var width: CGFloat = 300 {
+        didSet {
+            update()
+        }
+    }
+    var height: CGFloat = 400 {
+        didSet {
             update()
         }
     }
@@ -28,6 +38,11 @@ class CardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private let padding = CGPoint(x: 32, y: 32)
+    private let vPadding1: CGFloat = 16
+    private let vPadding2: CGFloat = 16
+    private let minTextHeight: CGFloat = 50
+    
 //    private let avatar = UIImage()
 //    private let name = UIImage()
     
@@ -35,7 +50,7 @@ class CardView: UIView {
         subviews.map {$0.removeFromSuperview()}
         
         let largeStack = StackView(axis: .vertical, alignment: .left)
-        largeStack.padding = CGPoint(x: 32, y: 32)
+        largeStack.padding = padding
         addSubview(largeStack)
         
         let userView = StackView(axis: .horizontal, alignment: .center)
@@ -52,7 +67,7 @@ class CardView: UIView {
         avatar.frame.size = CGSize(width: avatarDim, height: avatarDim)
         userView.addArrangedSubview(.view(avatar))
         
-        userView.addArrangedSubview(.spacer(8))
+        userView.addArrangedSubview(.spacer(16))
         
         let userName = UILabel()
         let firstName = post?.owner?.firstName ?? ""
@@ -61,21 +76,79 @@ class CardView: UIView {
         userName.font = UIFont.systemFont(ofSize: 28, weight: UIFontWeightHeavy)
         userName.sizeToFit()
         userView.addArrangedSubview(.view(userName))
-        userView.frame.origin = CGPoint(x: 16, y: 16)
+        
+        userView.layoutIfNeeded()
         
         largeStack.addArrangedSubview(.view(userView))
         
-        largeStack.addArrangedSubview(.spacer(16))
+        largeStack.addArrangedSubview(.spacer(vPadding1))
+        
+        
+        let photoView = CollectionView()
+        photoView.alignment = .top
+        photoView.horizontalPadding = 8
+        photoView.verticalPadding = 8
+        photoView.padding = CGPoint.zero
+        var maxPhotoDim: CGFloat = 150
+        if let attachments = post?.attachments {
+            for attachment in attachments {
+                if let v = attachment.value {
+                    switch v {
+                    case .photo(let photo):
+                        if var pWidth = photo.width.value >>> {CGFloat($0)},
+                            var pHeight = photo.height.value >>> {CGFloat($0)} {
+                            let photoV = UIImageView()
+                            photo.image?.load(into: photoV)
+                            var k: CGFloat!
+                            if pWidth > pHeight {
+                                k = CGFloat(pWidth) / maxPhotoDim
+                            } else {
+                                k = CGFloat(pHeight) / maxPhotoDim
+                            }
+                            pWidth /= k
+                            pHeight /= k
+                            photoV.frame.size = CGSize(width: pWidth, height: pHeight)
+                            photoView.addArrangedSubview(photoV)
+                        }
+                        
+                    default:
+                        break // TODO: Handle other data types
+                    }
+                }
+            }
+        }
+        photoView.layoutIfNeeded()
+        
+        var textHeight = height
+        textHeight -= padding.y + vPadding1 + userView.frame.height
+        if let count = post?.attachments.count{
+            if count > 0 {
+                textHeight -= vPadding2 + photoView.frame.height
+            }
+        }
+        print(textHeight)
+        textHeight = max(textHeight, minTextHeight)
+        print(textHeight)
         
         let body = UILabel()
         body.numberOfLines = 0
-        let bodyWidth: Double = 300
+        let bodyWidth: Double = Double(width - padding.x * 2)
         body.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
-        body.text = post?.body ?? "Spicy jalapeno flank landjaeger sausage tongue tail fatback frankfurter. Meatball tongue tail short ribs pastrami. Short ribs chicken pig tenderloin sausage pork. Corned beef t-bone pancetta jerky chuck picanha venison, turducken tenderloin shoulder boudin drumstick hamburger. Pork meatball meatloaf prosciutto pig andouille. Sirloin bacon hamburger short ribs pork cupim shank biltong turducken bresaola kevin prosciutto shoulder meatball. Strip steak frankfurter pork chop biltong jowl beef rump venison pancetta turkey tongue."
+        body.text = post?.body
         let size = body.textRect(forBounds: CGRect(x: 0, y: 0, width: bodyWidth, height: Double.infinity), limitedToNumberOfLines: 0).size
-        body.frame.size = size
+        body.frame.size.height = min(size.height, textHeight)
+        body.frame.size.width = size.width
         
         largeStack.addArrangedSubview(.view(body))
+        
+        if let count = post?.attachments.count{
+            if count > 0 {
+                largeStack.addArrangedSubview(.spacer(vPadding2))
+                largeStack.addArrangedSubview(.view(photoView))
+            }
+        }
+        
+        frame.size = CGSize(width: width, height: height)
         
     }
 }

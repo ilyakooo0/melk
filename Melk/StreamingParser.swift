@@ -50,7 +50,7 @@ class StreamingParser {
                 let complete = {
                     comp -= 1
                     if comp == 0 {
-                        print(post.owner)
+//                        print(post.owner)
                         completion(.post(post))
                     }
                 }

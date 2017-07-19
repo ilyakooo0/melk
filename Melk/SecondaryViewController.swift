@@ -34,10 +34,11 @@ class SecondaryView: UIView {
         }
     }
     
-    let card = CardView(frame: CGRect(x: 20, y: 20, width: 600, height: 300))
+    let card = CardView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        card.frame.origin = CGPoint(x: 20, y: 20)
         addSubview(card)
     }
     

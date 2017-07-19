@@ -49,7 +49,7 @@ class VKData {
                     }
                     user.birthday = formatter.date(from: birthday)
                 }
-                user.avatar = RealmPhoto.by(user.avatarID, surl: json["photo_max"].string)
+                user.avatar = RealmPhoto.by(user.avatarID, surl: json["photo_100"].string)// was "photo_max"
                 user.photo = RealmPhoto.by(user.photoID, surl: json["photo_max_orig"].string)
                 if let friendStat = json["friend_status"].int {
                     user.friendStatus = FriendStatus(rawValue: friendStat)

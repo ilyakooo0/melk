@@ -68,7 +68,7 @@ class CollectionView: UIView {
         var firstStack = true
         
         for view in arrangedSubviews {
-            print("new view")
+//            print("new view")
             if firstView {
                 lastStack.addArrangedSubview(.view(view))
                 firstView = false
