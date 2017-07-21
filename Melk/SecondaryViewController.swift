@@ -27,19 +27,38 @@ class SecondaryViewController: UIViewController {
 }
 
 class SecondaryView: UIView {
+    
+    
+    private let spacer: CGFloat = 16
+    
     func add(result: StreamingServiceResult) {
         switch result {
         case .post(let post):
+            let card = CardView()
             card.post = post
+            cards.addArrangedSubview(.spacer(spacer))
+            cards.addArrangedSubview(.view(card))
         }
     }
     
-    let card = CardView()
+//    private let card = CardView()
+    private let cards = StackView(axis: .horizontal, alignment: .top)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        card.frame.origin = CGPoint(x: 20, y: 20)
-        addSubview(card)
+        addSubview(cards)
+    }
+    
+    
+    private let padding = CGPoint(x: 32, y: 32)
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: { 
+            self.cards.layoutIfNeeded()
+            self.cards.frame.origin.y = self.padding.y
+            self.cards.frame.origin.x = self.frame.width - self.padding.x - self.cards.frame.width
+        }, completion: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

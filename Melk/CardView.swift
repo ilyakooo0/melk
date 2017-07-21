@@ -16,7 +16,7 @@ class CardView: UIView {
             update()
         }
     }
-    var width: CGFloat = 300 {
+    var minWidth: CGFloat = 300 {
         didSet {
             update()
         }
@@ -84,11 +84,15 @@ class CardView: UIView {
         largeStack.addArrangedSubview(.spacer(vPadding1))
         
         
+        let width = max(minWidth - 2 * padding.x, userView.frame.width)
+        
+        
         let photoView = CollectionView()
         photoView.alignment = .top
         photoView.horizontalPadding = 8
         photoView.verticalPadding = 8
         photoView.padding = CGPoint.zero
+        photoView.maxWidth = width
         var maxPhotoDim: CGFloat = 150
         if let attachments = post?.attachments {
             for attachment in attachments {
@@ -98,6 +102,7 @@ class CardView: UIView {
                         if var pWidth = photo.width.value >>> {CGFloat($0)},
                             var pHeight = photo.height.value >>> {CGFloat($0)} {
                             let photoV = UIImageView()
+                            photoV.layer.minificationFilter = kCAFilterTrilinear
                             photo.image?.load(into: photoV)
                             var k: CGFloat!
                             if pWidth > pHeight {
@@ -123,7 +128,7 @@ class CardView: UIView {
         textHeight -= padding.y + vPadding1 + userView.frame.height
         if let count = post?.attachments.count{
             if count > 0 {
-                textHeight -= vPadding2 + photoView.frame.height
+                textHeight -= vPadding2 + photoView.frame.height + padding.y
             }
         }
         print(textHeight)
@@ -132,7 +137,7 @@ class CardView: UIView {
         
         let body = UILabel()
         body.numberOfLines = 0
-        let bodyWidth: Double = Double(width - padding.x * 2)
+        let bodyWidth: Double = Double(width)
         body.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
         body.text = post?.body
         let size = body.textRect(forBounds: CGRect(x: 0, y: 0, width: bodyWidth, height: Double.infinity), limitedToNumberOfLines: 0).size
@@ -148,7 +153,7 @@ class CardView: UIView {
             }
         }
         
-        frame.size = CGSize(width: width, height: height)
+        frame.size = CGSize(width: width + padding.x * 2, height: height)
         
     }
 }

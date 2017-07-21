@@ -94,7 +94,9 @@ class CollectionView: UIView {
             }
         }
         lastStack.layoutIfNeeded()
-        largeStack.addArrangedSubview(.spacer(verticalPadding))
+        if !firstStack {
+            largeStack.addArrangedSubview(.spacer(verticalPadding))
+        }
         largeStack.addArrangedSubview(.view(lastStack))
         largeStack.frame.origin = CGPoint.zero
         largeStack.layoutIfNeeded()
