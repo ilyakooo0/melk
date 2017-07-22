@@ -62,6 +62,24 @@ class SecondaryView: UIView {
     }
     private var animate: Bool = false
     
+    private func cleanCards() {
+        outLoop: for (i, element) in cards.arrangedSubviews.enumerated() {
+            switch element {
+            case .view(let card):
+                let cardFrame = convert(card.frame, from: cards)
+                if cardFrame.intersects(bounds) {
+                   break outLoop
+                } else {
+                    cards.arrangedSubviews.remove(at: i-1)
+                    cards.arrangedSubviews.remove(at: i-1)
+                }
+            case .spacer(_):
+                break
+            }
+        }
+        print(cards.arrangedSubviews.count)
+    }
+    
     private let padding = CGPoint(x: 32, y: 32)
     
     override func layoutSubviews() {
@@ -72,10 +90,13 @@ class SecondaryView: UIView {
             self.cards.frame.origin.x = self.frame.width - self.padding.x - self.cards.frame.width
         }
         if animate {
-            UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [], animations: updates, completion: nil)
+            UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [], animations: updates, completion: { _ in
+                self.cleanCards()
+            })
 //            UIView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseOut], animations: updates, completion: nil)
         } else {
             updates()
+            self.cleanCards()
         }
         animate = false
     }

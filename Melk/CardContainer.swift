@@ -53,7 +53,7 @@ class CardContainer: UIView {
     private let card: CardView
     private let blurView = UIVisualEffectView()
     private let blur = UIBlurEffect(style: UIBlurEffectStyle.light)
-    private let scale: CGFloat = 0.35
+    private let scale: CGFloat = 0.5
     private let smallTransform: CGAffineTransform
     private let normalTransform = CGAffineTransform(scaleX: 1, y: 1)
     

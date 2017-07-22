@@ -44,6 +44,8 @@ class StackView: UIView {
         super.layoutSubviews()
         print("laying out subviews")
         
+        subviews.map({$0.removeFromSuperview()}) // TODO: There must be a better way!
+        
         var height: CGFloat = 0
         var width: CGFloat = 0
         switch axis {
