@@ -31,7 +31,7 @@ class CardView: UIView {
         super.init(frame: frame)
         layer.masksToBounds = true
         layer.cornerRadius = 20
-        backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0.9638966278, green: 0.9734401588, blue: 0.9734401588, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -29,7 +29,7 @@ class SecondaryViewController: UIViewController {
 class SecondaryView: UIView {
     
     
-    private let spacer: CGFloat = 16
+    private let spacer: CGFloat = 32
     
     func add(result: StreamingServiceResult) {
         switch result {
@@ -49,6 +49,7 @@ class SecondaryView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         addSubview(cards)
     }
     
@@ -77,7 +78,6 @@ class SecondaryView: UIView {
                 break
             }
         }
-        print(cards.arrangedSubviews.count)
     }
     
     private let padding = CGPoint(x: 32, y: 32)
