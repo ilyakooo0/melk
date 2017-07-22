@@ -44,7 +44,7 @@ class MainCoordinator {
 //        }
         print("didAuthorize")
         window.rootViewController = navC
-        stream.rules = ["я", "а"]
+        stream.rules = ["я", "а", "и"]
         stream.connect()
     }
     

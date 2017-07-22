@@ -62,7 +62,7 @@ class StackView: UIView {
                     height += a
                 }
             case .view(let view):
-                
+                view.layoutIfNeeded()
                 switch axis {
                 case .horizontal:
                     view.frame.origin.x = width

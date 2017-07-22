@@ -153,7 +153,9 @@ class CardView: UIView {
             }
         }
         
-        frame.size = CGSize(width: width + padding.x * 2, height: height)
+        largeStack.layoutIfNeeded()
+        
+        frame.size = CGSize(width: width + padding.x * 2, height: min(height, largeStack.frame.height))
         
     }
 }

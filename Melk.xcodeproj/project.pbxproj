@@ -10,6 +10,7 @@
 		0919AEA71F0D3D9D00894FFA /* SecondaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919AEA61F0D3D9D00894FFA /* SecondaryViewController.swift */; };
 		0919AEA91F0D459600894FFA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919AEA81F0D459600894FFA /* CardView.swift */; };
 		0919AEAD1F0D706700894FFA /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919AEAC1F0D706700894FFA /* StackView.swift */; };
+		09231E351F2394ED007C836D /* CardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09231E341F2394ED007C836D /* CardContainer.swift */; };
 		09939A561F097DA90014719D /* TableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09939A551F097DA90014719D /* TableViewCells.swift */; };
 		09A456361F0ED9A800BAC32D /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A456351F0ED9A800BAC32D /* CollectionView.swift */; };
 		09AFAB041F159C9200EBD200 /* StreamingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AFAB031F159C9200EBD200 /* StreamingService.swift */; };
@@ -69,6 +70,7 @@
 		0919AEA61F0D3D9D00894FFA /* SecondaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryViewController.swift; sourceTree = "<group>"; };
 		0919AEA81F0D459600894FFA /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0919AEAC1F0D706700894FFA /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		09231E341F2394ED007C836D /* CardContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardContainer.swift; sourceTree = "<group>"; };
 		09939A551F097DA90014719D /* TableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCells.swift; sourceTree = "<group>"; };
 		09A456351F0ED9A800BAC32D /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		09AFAAFF1F159AE300EBD200 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
@@ -117,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09231E331F2394C5007C836D /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				0919AEA81F0D459600894FFA /* CardView.swift */,
+				09231E341F2394ED007C836D /* CardContainer.swift */,
+			);
+			name = Card;
+			sourceTree = "<group>";
+		};
 		098397F71F1E887F008C88DD /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,11 +187,11 @@
 				098397F71F1E887F008C88DD /* Main */,
 				098397F81F1E888F008C88DD /* Secondary */,
 				098397F91F1E88A3008C88DD /* Streaming */,
+				09231E331F2394C5007C836D /* Card */,
 				09BF41EE1F07F71F00AFAD57 /* AppDelegate.swift */,
 				09BF42111F08341B00AFAD57 /* MyWeirdness.swift */,
 				09BF42121F08341B00AFAD57 /* PublicCrap.swift */,
 				09F03F351F1674ED000CE916 /* VKServer.swift */,
-				0919AEA81F0D459600894FFA /* CardView.swift */,
 				09939A551F097DA90014719D /* TableViewCells.swift */,
 				09BF420D1F0833A700AFAD57 /* LocalVKDataTypes.swift */,
 				09BF42151F0834D400AFAD57 /* VKPublicCrap.swift */,
@@ -294,6 +305,7 @@
 				09BF42181F08352E00AFAD57 /* VKData.swift in Sources */,
 				09BF42101F0833C100AFAD57 /* MainCoordinator.swift in Sources */,
 				09A456361F0ED9A800BAC32D /* CollectionView.swift in Sources */,
+				09231E351F2394ED007C836D /* CardContainer.swift in Sources */,
 				09BF42131F08341B00AFAD57 /* MyWeirdness.swift in Sources */,
 				0919AEA91F0D459600894FFA /* CardView.swift in Sources */,
 				09BF42321F08388100AFAD57 /* SecondaryCoordinator.swift in Sources */,
