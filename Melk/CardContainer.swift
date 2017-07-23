@@ -64,7 +64,8 @@ class CardContainer: UIView {
     private let smallTransform: CGAffineTransform
     private let normalTransform = CGAffineTransform(scaleX: 1, y: 1)
     private let shadowRadius: CGFloat = 12
-    private let shadowOpacity: Float = 0.3
+    private let shadowOpacity: Float = 0.15
+    private let shadowOffset: CGFloat = 16
     
     override init(frame: CGRect) {
         card = CardView(frame: frame)
@@ -89,9 +90,11 @@ class CardContainer: UIView {
         super.layoutSubviews()
         card.layoutIfNeeded()
         self.frame = card.frame
-        shadowView.layer.shadowPath = CGPath(roundedRect: card.frame, cornerWidth: card.layer.cornerRadius, cornerHeight: card.layer.cornerRadius, transform: nil)
+        shadowView.layer.shadowPath = CGPath(roundedRect: card.frame, cornerWidth: card.layer.cornerRadius, cornerHeight: card.layer.cornerRadius,
+                                             transform: nil)
+        shadowView.layer.shadowOffset.height = shadowOffset
         shadowView.frame = card.frame
-        blurView.frame = card.frame
+        blurView.frame = CGRect(x: -shadowRadius, y: 0, width: card.frame.width + shadowRadius*2, height: card.frame.height + shadowRadius + shadowOffset)
     }
 
 }
