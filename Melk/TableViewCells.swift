@@ -57,6 +57,12 @@ class TagTableViewCell: UITableViewCell {
         }
     }
     
+    var tagDidChange: ((String?) -> ())?
+    
+    @objc private func textDidChange() {
+        tagDidChange?(tagString)
+    }
+    
     var style: TagStyle = .normal {
         didSet {
             updateStyle()
@@ -70,6 +76,9 @@ class TagTableViewCell: UITableViewCell {
         
         textField.borderStyle = .roundedRect
         textField.adjustsFontSizeToFitWidth = false
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.addTarget(self, action: #selector(self.textDidChange), for: .editingChanged)
         
         contentView.addSubview(textField)
 //        textField.delegate = self
@@ -92,7 +101,7 @@ class TagTableViewCell: UITableViewCell {
             CGRect.infinite, limitedToNumberOfLines: 1)
             .height + 2*2
         
-        let frame = CGRect(x: 16, y: 8, width: bounds.width - 16*2, height: height)
+        let frame = CGRect(x: 16, y: style == .large ? 32 : 4, width: bounds.width - 16*2, height: height)
         textField.frame = frame
         print(textField.frame)
     }
@@ -103,8 +112,8 @@ class TagTableViewCell: UITableViewCell {
     
     
     static let identifier = "io.Melk.tagTableViewCell"
-    static let largeHeight: CGFloat = 37.5 + 8*2
-    static let normalHeight: CGFloat = 28.0 + 8*2
+    static let largeHeight: CGFloat = 37.5 + 16 + 32
+    static let normalHeight: CGFloat = 28.0 + 4*2
 }
 
 //extension TagTableViewCell: UITextFieldDelegate {

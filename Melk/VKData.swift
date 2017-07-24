@@ -289,13 +289,13 @@ class VKData {
                 photo.width.value = json["width"].int
                 photo.height.value = json["height"].int
                 var surl: String?
-                if let imageSurl = json["photo_2560"].string {
-                    surl = imageSurl
-                } else if let imageSurl = json["photo_1280"].string {
-                    surl = imageSurl
-                } else if let imageSurl = json["photo_807"].string {
-                    surl = imageSurl
-                } else if let imageSurl = json["photo_604"].string {
+//                if let imageSurl = json["photo_2560"].string {
+//                    surl = imageSurl
+//                } else if let imageSurl = json["photo_1280"].string {
+//                    surl = imageSurl
+//                } else if let imageSurl = json["photo_807"].string {
+//                    surl = imageSurl
+                /*} else*/ if let imageSurl = json["photo_604"].string {
                     surl = imageSurl
                 } else if let imageSurl = json["photo_130"].string {
                     surl = imageSurl

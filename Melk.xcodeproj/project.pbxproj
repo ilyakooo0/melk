@@ -133,6 +133,7 @@
 			children = (
 				09BF420F1F0833C100AFAD57 /* MainCoordinator.swift */,
 				09BF42551F08413000AFAD57 /* MainViewController.swift */,
+				09939A551F097DA90014719D /* TableViewCells.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -192,7 +193,6 @@
 				09BF42111F08341B00AFAD57 /* MyWeirdness.swift */,
 				09BF42121F08341B00AFAD57 /* PublicCrap.swift */,
 				09F03F351F1674ED000CE916 /* VKServer.swift */,
-				09939A551F097DA90014719D /* TableViewCells.swift */,
 				09BF420D1F0833A700AFAD57 /* LocalVKDataTypes.swift */,
 				09BF42151F0834D400AFAD57 /* VKPublicCrap.swift */,
 				09BF42171F08352E00AFAD57 /* VKData.swift */,

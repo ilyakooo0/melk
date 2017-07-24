@@ -118,6 +118,6 @@ class VKServer {
 }
 
 fileprivate func url(`for` method: String) -> URL {
-    let surl = "https://api.vk.com/method/\(method)?access_token=\(accessKey)&v=\(vkAPIVersion)"
+    let surl = "https://api.vk.com/method/\(method)?access_token=\(accessKey)&v=\(vkAPIVersion)&lang=0"
     return URL.init(string: surl)!
 }

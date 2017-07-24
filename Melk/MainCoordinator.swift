@@ -27,6 +27,14 @@ class MainCoordinator {
                   deleteRealmIfMigrationNeeded: true)
         
         navC = UINavigationController(rootViewController: mainVC)
+        
+        mainVC.present = { tags in
+            if tags.count > 0 {
+                self.secondaryCoord.present(tag: tags.first!)
+                self.stream.rules = tags
+                self.stream.connect()
+            }
+        }
         updateScreens()
         stream.handleResult = { result in
             self.secondaryCoord.add(result: result)
@@ -44,8 +52,6 @@ class MainCoordinator {
 //        }
         print("didAuthorize")
         window.rootViewController = navC
-        stream.rules = ["я", "а", "и"]
-        stream.connect()
     }
     
     func updateScreens() {

@@ -29,7 +29,9 @@ class MainViewController: UIViewController {
     }
     
     @objc private func presentTags() {
-        
+        present?(
+            mainView.tags.flatMap({$0}).filter({$0 != ""})
+        )
     }
 }
 
@@ -45,11 +47,24 @@ class MainView: UIView {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         tableView.register(TagTableViewCell.self, forCellReuseIdentifier: TagTableViewCell.identifier)
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         setNeedsLayout()
     }
     
     override func layoutSubviews() {
         tableView.frame = bounds
+    }
+    
+    fileprivate var tags: [String?] = [nil] {
+        didSet {
+            if tags.last! != nil && tags.last! != "" {
+                if tags.count < 10 {
+                    tags.append(nil)
+                    tableView.insertRows(at: [IndexPath.init(row: tags.count - 1, section: 0)], with: .automatic)
+                }
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,13 +77,18 @@ extension MainView: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: TagTableViewCell.identifier) as? TagTableViewCell {
 //            cell.titleText = "Testing testing 1 2 3"
             cell.style = indexPath.item == 0 ? .large : .normal
+            let index = indexPath.row
+            cell.tagDidChange = { tag in
+                self.tags[index] = tag
+            }
+            cell.tagString = tags[index]
             return cell
         }
         return UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return tags.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

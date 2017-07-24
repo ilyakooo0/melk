@@ -12,10 +12,19 @@ class SecondaryCoordinator {
     
     var windows: [UIWindow] = []
     
+    private var didStartPresenting = false
+    private var tag: String = ""
+    
     func add(result: StreamingServiceResult) {
         for vc in VCs {
             vc.add(result: result)
         }
+    }
+    
+    func present(tag newTag: String) {
+        didStartPresenting = true
+        self.tag = newTag
+        VCs.map({ $0.present(tag: newTag) })
     }
     
     init() {
@@ -36,6 +45,9 @@ class SecondaryCoordinator {
             VCs.append(VC)
             window.rootViewController = VC
             windows.append(window)
+            if didStartPresenting {
+                VC.present(tag: tag)
+            }
         }
     }
 }

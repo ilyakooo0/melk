@@ -18,12 +18,12 @@ class CardView: UIView {
     }
     var minWidth: CGFloat = 300 {
         didSet {
-            update()
+//            update()
         }
     }
     var height: CGFloat = 400 {
         didSet {
-            update()
+//            update()
         }
     }
     
@@ -31,17 +31,32 @@ class CardView: UIView {
         super.init(frame: frame)
         layer.masksToBounds = true
         layer.cornerRadius = 20
-        backgroundColor = #colorLiteral(red: 0.9638966278, green: 0.9734401588, blue: 0.9734401588, alpha: 1)
+        gradient.colors = [#colorLiteral(red: 0.9841352105, green: 0.9841352105, blue: 0.9841352105, alpha: 1).cgColor, #colorLiteral(red: 0.9456828237, green: 0.9456828237, blue: 0.9456828237, alpha: 1).cgColor]
+        gradient.startPoint = CGPoint(x: 0.5, y: 0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1)
+        layer.addSublayer(gradient)
+//        backgroundColor = #colorLiteral(red: 0.9638966278, green: 0.9734401588, blue: 0.9734401588, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+   
+    private let gradient = CAGradientLayer()
+
     
     private let padding = CGPoint(x: 32, y: 32)
     private let vPadding1: CGFloat = 16
     private let vPadding2: CGFloat = 16
-    private let minTextHeight: CGFloat = 50
+    private var minTextHeight: CGFloat {
+        return CGFloat(height * 0.2)
+    }
+    private let gradientRatio: CGFloat = 0.2
+    private let minGradientAmount: CGFloat = 70
+    private let hiddenByGradient: CGFloat = 10
+    private var maxAttachmentDim: CGFloat {
+        return minWidth / 2.3
+    }
     
 //    private let avatar = UIImage()
 //    private let name = UIImage()
@@ -54,10 +69,9 @@ class CardView: UIView {
         addSubview(largeStack)
         
         let userView = StackView(axis: .horizontal, alignment: .center)
-//        userView.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
 
         
-        let avatarDim: CGFloat = 50
+        let avatarDim: CGFloat = 64
         let avatar = UIImageView()
         post?.owner?.avatar?.load(into: avatar)
         avatar.layer.cornerRadius = avatarDim/2
@@ -74,6 +88,7 @@ class CardView: UIView {
         let lastName = post?.owner?.lastName ?? ""
         userName.text = "\(firstName) \(lastName)"
         userName.font = UIFont.systemFont(ofSize: 28, weight: UIFontWeightHeavy)
+        userName.textColor = UIColor.darkText
         userName.sizeToFit()
         userView.addArrangedSubview(.view(userName))
         
@@ -93,7 +108,7 @@ class CardView: UIView {
         photoView.verticalPadding = 8
         photoView.padding = CGPoint.zero
         photoView.maxWidth = width
-        var maxPhotoDim: CGFloat = 150
+        var maxPhotoDim: CGFloat = maxAttachmentDim
         if let attachments = post?.attachments {
             for attachment in attachments {
                 if let v = attachment.value {
@@ -103,6 +118,7 @@ class CardView: UIView {
                             var pHeight = photo.height.value >>> {CGFloat($0)} {
                             let photoV = UIImageView()
                             photoV.layer.minificationFilter = kCAFilterTrilinear
+                            photoV.contentMode = .scaleAspectFill
                             photo.image?.load(into: photoV)
                             var k: CGFloat!
                             if pWidth > pHeight {
@@ -125,10 +141,10 @@ class CardView: UIView {
         photoView.layoutIfNeeded()
         
         var textHeight = height
-        textHeight -= padding.y + vPadding1 + userView.frame.height
+        textHeight -= padding.y * 2 + vPadding1 + userView.frame.height
         if let count = post?.attachments.count{
             if count > 0 {
-                textHeight -= vPadding2 + photoView.frame.height + padding.y
+                textHeight -= vPadding2 + photoView.frame.height
             }
         }
         print(textHeight)
@@ -140,9 +156,25 @@ class CardView: UIView {
         let bodyWidth: Double = Double(width)
         body.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
         body.text = post?.body
+        body.textColor = UIColor.darkText
         let size = body.textRect(forBounds: CGRect(x: 0, y: 0, width: bodyWidth, height: Double.infinity), limitedToNumberOfLines: 0).size
-        body.frame.size.height = min(size.height, textHeight)
         body.frame.size.width = size.width
+        if size.height > textHeight {
+            body.frame.size.height = textHeight
+            let maskView = UIView()
+            let maskLayer = CAGradientLayer()
+            maskLayer.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
+            maskLayer.endPoint = CGPoint(x: 0.5, y: 1 - (hiddenByGradient/textHeight))
+            let minPoint = minGradientAmount / textHeight
+            maskLayer.startPoint = CGPoint(x: 0.5, y: 1 - max(minPoint, gradientRatio))
+            print(maskLayer.startPoint)
+            maskLayer.frame = body.bounds
+            maskView.frame = body.bounds
+            maskView.layer.addSublayer(maskLayer)
+            body.mask = maskView
+        } else {
+            body.frame.size.height = size.height
+        }
         
         largeStack.addArrangedSubview(.view(body))
         
@@ -156,6 +188,9 @@ class CardView: UIView {
         largeStack.layoutIfNeeded()
         
         frame.size = CGSize(width: width + padding.x * 2, height: min(height, largeStack.frame.height))
+        
+        gradient.frame = self.bounds
+        gradient.endPoint = CGPoint(x: 0.5, y: bounds.height / height)
         
     }
 }
