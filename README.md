@@ -1,5 +1,7 @@
 # Melk
 
+_Might not work properly with new streaming API. This project was developed while the API was in beta._
+
 [![Melk demo](http://img.youtube.com/vi/9SNc0bLDCL0/0.jpg)](http://www.youtube.com/watch?v=9SNc0bLDCL0)
 
 При проведении различных мероприятий организаторы довольно часто призывают людей, посещающих эти мероприятия, выложить у себя в соц сети что-нибудь об этом мероприятии, чаще всего под мероприятие даже выделяется отдельный хештег.
